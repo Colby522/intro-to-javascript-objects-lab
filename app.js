@@ -25,7 +25,7 @@ const game = {
 
 // Exercise 2
 
-console.log(game)
+// console.log(game)
 
 /*
 Exercise 3
@@ -197,19 +197,61 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
-// const gymStatus = {
-//     gymTally: [
-//         {complete: 0},
-//         {incomplete: 0},
-//     ]
-// }
+const gymTally = [
+    {complete: 0, incomplete: 0}
+]
 
-// game.gyms.push(gymStatus)
+game.gyms.push(gymTally)
 
-// game.gyms.forEach((gym) => {
-//     if(gym.completed === true) {
-//         gym.gymStatus.gymTally[0] = gym.gymStatus.gymTally[0] + 1
-//     }
-// })
+game.gyms.forEach((gymStatus) => {
+  if(gymStatus.completed === true) {
+    gymTally[0].complete = gymTally[0].complete + 1
+  } else if(gymStatus.completed === false) {
+    gymTally[0].incomplete = gymTally[0].incomplete + 1
+  }
+})
 
-// console.log(gymStatus.gymTally)
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 14 here:
+*/
+
+game.partyCount = 0
+
+game.party.forEach(() => {
+  game.partyCount = game.partyCount + 1
+})
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+
+game.gyms.forEach((gym) => {
+  if(gym.difficulty < 8) {
+      gym.completed = true
+  } 
+})
+
+// You can use the same .forEach function to change the value of 'completed'
+// but it doesnt change the values of 'gymTally'
+
+/*
+Exercise 16
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+console.log(game)
