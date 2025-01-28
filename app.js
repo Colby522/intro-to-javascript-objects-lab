@@ -201,15 +201,18 @@ const gymTally = [
     {complete: 0, incomplete: 0}
 ]
 
-game.gyms.push(gymTally)
+game.gyms.gymStatus = function (gym) {
+  gym.forEach((g) => {
+    if (g.completed === true) {
+      gymTally[0].complete + 1
+    } else {
+      gymTally[0].incomplete + 1
+    }
+  })
+}
 
-game.gyms.forEach((gymStatus) => {
-  if(gymStatus.completed === true) {
-    gymTally[0].complete = gymTally[0].complete + 1
-  } else if(gymStatus.completed === false) {
-    gymTally[0].incomplete = gymTally[0].incomplete + 1
-  }
-})
+game.gyms.gymStatus()
+
 
 /*
 Exercise 14
