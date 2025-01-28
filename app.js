@@ -201,18 +201,18 @@ const gymTally = [
     {complete: 0, incomplete: 0}
 ]
 
-game.gyms.gymStatus = function (gym) {
-  gym.forEach((g) => {
-    if (g.completed === true) {
-      gymTally[0].complete + 1
+game.gyms.gymStatus = function () {
+  game.gyms.forEach((gym) => {
+    if (gym.completed === true) {
+      gymTally[0].complete = gymTally[0].complete + 1
     } else {
-      gymTally[0].incomplete + 1
+      gymTally[0].incomplete = gymTally[0].incomplete + 1
     }
   })
+  return console.log(gymTally)
 }
 
 game.gyms.gymStatus()
-
 
 /*
 Exercise 14
@@ -226,11 +226,13 @@ This method should:
 Solve Exercise 14 here:
 */
 
-game.partyCount = 0
+game.party.partyCount = function () {
+  game.party.forEach(() => {
+    return 0 + 1
+  })
+}
 
-game.party.forEach(() => {
-  game.partyCount = game.partyCount + 1
-})
+game.party.partyCount()
 
 /*
 Exercise 15
